@@ -93,8 +93,8 @@ void EcCiA402Drive::processData(size_t index, uint8_t * domain_address)
     if (status_word_ != last_status_word_) {
       state_ = deviceState(status_word_);
       if (state_ != last_state_) {
-        std::cout << "STATE: " << DEVICE_STATE_STR.at(state_)
-                  << " with status word :" << status_word_ << std::endl;
+        std::cout << "STATE" << DEVICE_STATE_STR.at(state_)<<index<<" : "
+                  << " with status word : 0x" <<std::hex<< status_word_ << std::endl;
       }
     }
     initialized_ = ((state_ == STATE_OPERATION_ENABLED) &&
